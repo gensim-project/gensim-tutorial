@@ -1,0 +1,384 @@
+% (c) 2010 School of Infomatics
+%
+% v0.1, sviglas
+%
+% This file provides a beamer theme for the School of Informatics
+%
+% The LaTeX source may not be the cleanest ever, but it will do for
+% now.
+
+\ProvidesPackage{beamerthemeinformatics}
+
+%%
+%% first define some edinburgh colors
+%%
+\definecolor{edinblue}{rgb}{0,0.2,0.37}
+\definecolor{edinred}{rgb}{0.76,0,0.26}
+\definecolor{edinorange}{rgb}{0.76,0.365,0.141}
+\definecolor{edinmagenta}{rgb}{0.529,0,0.357}
+\definecolor{edingreen}{rgb}{0.008,0.286,0.188}
+
+%% for the presentation
+\mode<presentation>
+
+%% structure options if's
+\newif\ifbeamer@logoseparator
+\newif\ifbeamer@author
+\newif\ifbeamer@slidecount
+\newif\ifbeamer@nonav
+\newif\ifbeamer@secheadings
+\newif\ifbeamer@secheadingsfooter
+
+%% institute definitions if's
+\newif\ifbeamer@inst@cisa
+\newif\ifbeamer@inst@esi
+\newif\ifbeamer@inst@ianc
+\newif\ifbeamer@inst@iccs
+\newif\ifbeamer@inst@icsa
+\newif\ifbeamer@inst@ilsi
+\newif\ifbeamer@inst@ipab
+\newif\ifbeamer@inst@lfcs
+\newif\ifbeamer@inst@inspace
+\newif\ifbeamer@inst@empty
+
+%% structure options
+\beamer@logoseparatorfalse
+\beamer@authorfalse
+\beamer@slidecountfalse
+\beamer@nonavfalse
+\beamer@secheadingsfalse
+\beamer@secheadingsfooterfalse
+
+%% institute options
+\beamer@inst@cisafalse
+\beamer@inst@esifalse
+\beamer@inst@iancfalse
+\beamer@inst@iccsfalse
+\beamer@inst@icsafalse
+\beamer@inst@ilsifalse
+\beamer@inst@ipabfalse
+\beamer@inst@lfcsfalse
+\beamer@inst@inspacefalse
+\beamer@inst@emptytrue
+
+%% declare the various options for the package
+\DeclareOptionBeamer{logoseparator}{
+  \beamer@logoseparatortrue
+  \beamer@secheadingsfalse
+}
+\DeclareOptionBeamer{secheadings}{
+  \beamer@logoseparatorfalse
+  \beamer@secheadingstrue
+}
+
+\DeclareOptionBeamer{author}{\beamer@authortrue}
+\DeclareOptionBeamer{secheadingsfooter}{
+	\beamer@secheadingsfootertrue
+}
+\DeclareOptionBeamer{slidecount}{\beamer@slidecounttrue}
+\DeclareOptionBeamer{nonav}{\beamer@nonavtrue}
+\DeclareOptionBeamer{cisa}{
+  \beamer@inst@cisatrue
+  \beamer@inst@esifalse
+  \beamer@inst@iancfalse
+  \beamer@inst@iccsfalse
+  \beamer@inst@icsafalse
+  \beamer@inst@ilsifalse
+  \beamer@inst@ipabfalse
+  \beamer@inst@lfcsfalse
+  \beamer@inst@inspacefalse
+  \beamer@inst@emptyfalse
+}
+\DeclareOptionBeamer{esi}{
+  \beamer@inst@cisafalse
+  \beamer@inst@esitrue
+  \beamer@inst@iancfalse
+  \beamer@inst@iccsfalse
+  \beamer@inst@icsafalse
+  \beamer@inst@ilsifalse
+  \beamer@inst@ipabfalse
+  \beamer@inst@lfcsfalse
+  \beamer@inst@inspacefalse
+  \beamer@inst@emptyfalse
+}
+\DeclareOptionBeamer{ianc}{
+  \beamer@inst@cisafalse
+  \beamer@inst@esifalse
+  \beamer@inst@ianctrue
+  \beamer@inst@iccsfalse
+  \beamer@inst@icsafalse
+  \beamer@inst@ilsifalse
+  \beamer@inst@ipabfalse
+  \beamer@inst@lfcsfalse
+  \beamer@inst@inspacefalse
+  \beamer@inst@emptyfalse
+}
+\DeclareOptionBeamer{iccs}{
+  \beamer@inst@cisafalse
+  \beamer@inst@esifalse
+  \beamer@inst@iancfalse
+  \beamer@inst@iccstrue
+  \beamer@inst@icsafalse
+  \beamer@inst@ilsifalse
+  \beamer@inst@ipabfalse
+  \beamer@inst@lfcsfalse
+  \beamer@inst@inspacefalse
+  \beamer@inst@emptyfalse
+}
+\DeclareOptionBeamer{icsa}{
+  \beamer@inst@cisafalse
+  \beamer@inst@esifalse
+  \beamer@inst@iancfalse
+  \beamer@inst@iccsfalse
+  \beamer@inst@icsatrue
+  \beamer@inst@ilsifalse
+  \beamer@inst@ipabfalse
+  \beamer@inst@lfcsfalse
+  \beamer@inst@inspacefalse
+  \beamer@inst@emptyfalse
+}
+\DeclareOptionBeamer{ilsi}{
+  \beamer@inst@cisafalse
+  \beamer@inst@esifalse
+  \beamer@inst@iancfalse
+  \beamer@inst@iccsfalse
+  \beamer@inst@icsafalse
+  \beamer@inst@ilsitrue
+  \beamer@inst@ipabfalse
+  \beamer@inst@lfcsfalse
+  \beamer@inst@inspacefalse
+  \beamer@inst@emptyfalse
+}
+\DeclareOptionBeamer{ipab}{
+  \beamer@inst@cisafalse
+  \beamer@inst@esifalse
+  \beamer@inst@iancfalse
+  \beamer@inst@iccsfalse
+  \beamer@inst@icsafalse
+  \beamer@inst@ilsifalse
+  \beamer@inst@ipabtrue
+  \beamer@inst@lfcsfalse
+  \beamer@inst@inspacefalse
+  \beamer@inst@emptyfalse
+}
+\DeclareOptionBeamer{lfcs}{
+  \beamer@inst@cisafalse
+  \beamer@inst@esifalse
+  \beamer@inst@iancfalse
+  \beamer@inst@iccsfalse
+  \beamer@inst@icsafalse
+  \beamer@inst@ilsifalse
+  \beamer@inst@ipabfalse
+  \beamer@inst@lfcstrue
+  \beamer@inst@inspacefalse
+  \beamer@inst@emptyfalse
+}
+\DeclareOptionBeamer{inspace}{
+  \beamer@inst@cisafalse
+  \beamer@inst@esifalse
+  \beamer@inst@iancfalse
+  \beamer@inst@iccsfalse
+  \beamer@inst@icsafalse
+  \beamer@inst@ilsifalse
+  \beamer@inst@ipabfalse
+  \beamer@inst@lfcsfalse
+  \beamer@inst@inspacetrue
+  \beamer@inst@emptyfalse
+}
+
+
+\def\setlogochoice{
+  \ifbeamer@inst@cisa
+  \includegraphics[height=5ex]{cisa-long}      
+  \hspace*{5ex} 
+  \fi
+  \ifbeamer@inst@esi
+  \includegraphics[height=5ex]{esi-long}
+  \hspace*{5ex} 
+  \fi
+  \ifbeamer@inst@ianc
+  \includegraphics[height=5ex]{ianc-long}
+  \hspace*{5ex} 
+  \fi
+  \ifbeamer@inst@iccs
+  \includegraphics[height=5ex]{iccs-long}
+  \hspace*{5ex} 
+  \fi
+  \ifbeamer@inst@icsa
+  \includegraphics[height=5ex]{icsa-long}
+  \hspace*{5ex} 
+  \fi
+  \ifbeamer@inst@ilsi
+  \includegraphics[height=5ex]{ilsi-long}
+  \hspace*{5ex} 
+  \fi
+  \ifbeamer@inst@ipab
+  \includegraphics[height=5ex]{ipab-long}
+  \hspace*{5ex} 
+  \fi
+  \ifbeamer@inst@lfcs
+  \includegraphics[height=5ex]{lfcs-long}
+  \hspace*{5ex} 
+  \fi
+  \ifbeamer@inst@inspace
+  \includegraphics[height=5ex]{inspace-long}
+  \hspace*{5ex} 
+  \fi
+}
+
+
+%% parse the options
+\ProcessOptionsBeamer
+
+%%
+%% Use circles for bullets
+%%
+\setbeamertemplate{items}[circle]
+
+
+%%
+%% Now set colors/fonts for the various elements of the theme
+%%
+%% background color is white
+\setbeamercolor{background canvas}{bg=white} 
+%% normal text is in corporate blue
+\setbeamercolor{normal text}{fg=edinblue}
+\setbeamercolor{bar}{bg=edinblue,fg=white}
+%% alerted text is in corporate red
+\setbeamercolor{alerted text}{fg=edinred}
+%% structure is set to corporate red
+\setbeamercolor{structure}{fg=edinred}
+%% title is typeset in corporate blue, bold, and roman
+\setbeamercolor{title}{fg=edinblue}
+\setbeamerfont{title}{series=\bfseries,family=\rmfamily}
+%% frametitle is typeset in a large, bold, and roman font
+\setbeamerfont{frametitle}{size=\large,family=\rmfamily}
+%% smaller font sizes for institute and date
+\setbeamerfont{institute}{size=\small}
+\setbeamerfont{date}{size=\scriptsize}
+%% rounded and shadowed boxes for the various blocks
+\setbeamertemplate{blocks}[rounded][shadow=true] 
+%% normal size for block titles
+\setbeamerfont{block title}{size={}} 
+%% standard blocks are in corporate blue
+\setbeamercolor{block title}{fg=white,bg=edinblue}
+\setbeamercolor{block body}{parent=normal text,use=block
+  title,bg=block title.bg!20!bg}
+%% alerted blocks are in orange from the muted palette
+\setbeamercolor{block title alerted}{fg=white,bg=edinred}
+\setbeamercolor{block body alerted}{parent=normal text,use=block
+  title alerted,bg=block title alerted.bg!20!bg}
+%% example blocks are in green from the muted palette
+\setbeamercolor{block title example}{fg=white,bg=edingreen}
+\setbeamercolor{block body example}{parent=normal text,use=block
+  title example,bg=block title example.bg!20!bg}
+\setbeamercolor{section in head/foot}{bg=white,fg=edinblue}
+\setbeamercolor{subsection in head/foot}{use=section in
+  head/foot,bg=white,fg=section in head/foot.fg!70}
+%% suppress navigation symbols if requested
+\ifbeamer@nonav
+\setbeamertemplate{navigation symbols}{} 
+\fi
+
+
+%% frame title
+
+\setbeamertemplate{frametitle} { 
+  \vbox{  \vskip1pt \insertframetitle}\par
+  \hspace*{-0.045\paperwidth}
+}
+
+%% headline
+
+%% headline contains the university and institute logos
+
+\defbeamertemplate*{headline}{}{
+  \vspace{0.05cm}
+  \hbox{   
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=5ex,dp=1ex,left]{}%
+      \hspace*{3ex}
+      \includegraphics[height=5ex]{./informatics.pdf}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=5ex,dp=1ex,right]{}%
+      \setlogochoice
+    \end{beamercolorbox}
+    }%    
+    \ifbeamer@logoseparator
+    \hbox{
+      \begin{beamercolorbox}[wd=1.02\paperwidth,ht=0.5mm]{bar}%
+      \end{beamercolorbox}
+    }%
+    \fi
+    \ifbeamer@secheadings
+    \hbox{
+      \begin{beamercolorbox}[wd=1.02\paperwidth,ht=0.5mm]{bar}%
+      \end{beamercolorbox}
+    }%
+    \hbox{
+      \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{section
+        in head/foot}%
+        \insertsectionhead
+        \hspace*{2ex}
+      \end{beamercolorbox}
+      \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{subsection
+        in head/foot}%
+        \hspace*{2ex}
+        \insertsubsectionhead
+      \end{beamercolorbox}
+    }%
+    \hbox{
+      \begin{beamercolorbox}[wd=1.02\paperwidth,ht=0.5mm]{bar}%
+      \end{beamercolorbox}
+    }%
+    \fi
+}
+
+
+%% footline
+
+%% footline displays the School's URL by default and if the
+%% corresponding options have been set, it also displays the author
+%% and the slide count
+\defbeamertemplate*{footline}{}{
+  \leavevmode%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex]{}
+    \hspace{2ex}
+	%
+    \ifbeamer@secheadingsfooter
+	  \secname \hspace{1ex} \hspace{1ex} \subsecname
+	\else
+    \fi
+    %
+    \hfill
+    %
+    \begin{minipage}{55pt}
+    \flushright
+    \insertframenumber %/ \pagecount
+    \smallskip
+    \end{minipage}
+	%
+    \hspace{2ex}
+    \vspace{1pt}
+   \end{beamercolorbox}
+    
+%    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{}%
+%		\hspace*{2ex}
+%		\ifbeamer@secheadingsfooter
+%		  \secname \hspace{1ex} \hspace{1ex} \subsecname
+%		\else 
+%		\ifbeamer@author
+%		  \insertshortauthor
+%		\fi
+%		\fi
+%	\end{beamercolorbox}%
+  
+% \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{}%
+%    www.inf.ed.ac.uk
+%    \hspace*{2ex}
+%  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+\mode
+<all>
