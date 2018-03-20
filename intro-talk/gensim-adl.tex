@@ -53,3 +53,58 @@ A GenSim description consists of several components
 \end{itemize}
 
 \end{frame}
+
+\begin{frame}{Available Models}
+
+\begin{itemize}
+	\item ARMv7-A 
+	\only<2>{
+		\begin{itemize}
+			\item ARM + Thumb-2
+			\item Some VFP and NEON
+			\item User Mode + Full System
+		\end{itemize}
+	}
+	\item ARMv8
+	\only<3>{
+		\begin{itemize}
+			\item AArch64 Only
+			\item Some FP Support
+			\item User Mode + Full System
+		\end{itemize}
+	}
+	\item RISC-V
+	\only<4>{
+		\begin{itemize}
+			\item Core and FP
+			\item User Mode only
+		\end{itemize}
+	}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Execution Model}
+
+\begin{minipage}[t][0.4\textheight]{\textwidth}
+GenSim generally has a simplistic execution model
+\begin{itemize}
+	\item Instructions have a straightforward encoding
+	\item Instructions are executed in PC order
+	\item Effects occur immediately
+	\item Instructions can be predicated
+\end{itemize}
+\end{minipage}
+
+\pause
+
+\begin{minipage}[t][0.4\textheight]{\textwidth}
+Which architectures do not fit this model?
+\begin{itemize}
+	\item x86 (stateful encoding)
+	\item MIPS (delay slots)
+	\item DSP-like architectures (delayed effects)
+\end{itemize}
+\end{minipage}
+
+\end{frame}
