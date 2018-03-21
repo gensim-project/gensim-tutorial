@@ -29,28 +29,56 @@ GenSim is the name of our ADL toolset. It is designed to:
 \begin{frame}{GenSim Model Components}
 
 A GenSim description consists of several components
-\begin{itemize}
 \pause
+
+\begin{minipage}[h]{0.6\textwidth}
+\begin{itemize}
 \item A `System' component
 \begin{itemize}
 \item Available instruction sets
 \item Register file layout
 \item Configurable Features
 \end{itemize}
+\end{itemize}
+\end{minipage}%
+\begin{minipage}[h]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/component-system}
+\end{minipage}
+
+\smallskip
 \pause
+
+\begin{minipage}[h]{0.6\textwidth}
+\begin{itemize}
 \item A `Syntax' component
 \begin{itemize}
 \item Instruction formats
 \item Instruction encoding
 \end{itemize}
+\end{itemize}
+\end{minipage}%
+\begin{minipage}[h]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/component-syntax}
+\end{minipage}
+
+\smallskip
 \pause
+
+\begin{minipage}[h]{0.6\textwidth}
+\begin{itemize}
 \item A `Semantics' component
 \begin{itemize}
 \item Instruction behaviours
 \item Exception behaviour
 \end{itemize}
-
 \end{itemize}
+\end{minipage}%
+\begin{minipage}[h]{0.35\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/component-semantics}
+\end{minipage}
 
 \end{frame}
 
