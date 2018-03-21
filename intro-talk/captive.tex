@@ -4,20 +4,29 @@
 
 \end{frame}
 
-\begin{frame}{Captive}
-
-\end{frame}
-
-\begin{frame}{Captive}
+\begin{frame}{The Captive Cross-Architectural Hypervisor}
 
 Alternative simulation tool which uses GenSim ADL models
 
-Uses host virtualisation features to improve simulation speed
+\begin{itemize}
+	\item Uses x86 virtualisation features
+	\item Supports ARMv7 and ARMv8 (AArch64)
+	\item Some host machine devices can also be used
+\end{itemize}
 
 \end{frame}
 
-\begin{frame}{Captive}
-	
-	Not currently available (but coming soon!)
-	
+\begin{frame}{Captive - Host Virtualisation Features}
+
+Many possible x86 features which could be used:
+
+\begin{itemize}
+	\item Intel-VT (or AMD-V)
+	\item Memory Protection Keys
+	\item Process Context IDs
+	\item Privileged Execution
+	\item Interrupts/Exceptions
+	\item ...
+\end{itemize}
+
 \end{frame}
