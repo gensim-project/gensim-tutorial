@@ -14,14 +14,6 @@ Three main components to system description:
 
 \begin{frame}{Register File}
 
-Three types of entry
-
-Slot
-
-Bank
-
-Vector Bank
-
 GenSim treats the register file as a set of flat memory regions (spaces)
 with aliased `views'.
 
@@ -29,9 +21,25 @@ with aliased `views'.
 
 \begin{frame}{Register File}
 
-\begin{figure}
-example showing ARM NEON vector register file
-\end{figure}
+Three types of entry
+\begin{itemize}
+\item Slot - single, non banked register
+\item Bank - `array' of values
+\item Vector Bank - `array' of vector values
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Register File}
+
+\centering
+\only<1>{
+	\includegraphics{figures/regbank-rb}
+}
+
+\only<2>{
+	\includegraphics{figures/regbank-slots}
+}
 
 \end{frame}
 
