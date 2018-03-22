@@ -49,13 +49,26 @@ Formats described using printf-like string
 \begin{frame}{Formats}
 
 \centering
-\includegraphics[width=\textwidth]{figures/formats}
+ARM Data-Processing (Register) Format
+\includegraphics[width=\textwidth]{figures/format-arm}
+
+\bigskip
+
+PowerPC B-Form
+\includegraphics[width=\textwidth]{figures/format-ppc}
+
+\bigskip
+
+RISC-V R-Type
+\includegraphics[width=\textwidth]{figures/format-riscv}
 
 \end{frame}
 
 \begin{frame}[fragile]{Formats}
 
 PowerPC B-Form
+
+\includegraphics[width=\textwidth]{figures/format-ppc}
 
 \begin{lstlisting}
 "%opcd:6 %bo:5 %bi:5 %bd:14 %aa:1 %lk:1";
@@ -64,6 +77,8 @@ PowerPC B-Form
 \bigskip
 
 RISC-V R-Type
+
+\includegraphics[width=\textwidth]{figures/format-riscv}
 
 \begin{lstlisting}
 "%funct7:7 %rs2:5 %rs1:5 %funct3:3 %rd:5 %opcode:7";
