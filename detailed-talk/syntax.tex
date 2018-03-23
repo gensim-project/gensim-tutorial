@@ -1,5 +1,4 @@
-\section{Syntax Description}
-\subsection{}
+\subsection{Syntax Description}
 
 \begin{frame}{Overview}
 
@@ -30,11 +29,6 @@ However, GenSim does have native support for the following features:
 
 \end{frame}
 
-\begin{frame}{Overview}
-
-
-
-\end{frame}
 
 \begin{frame}{Formats}
 
@@ -86,14 +80,109 @@ RISC-V R-Type
 
 \end{frame}
 
+\begin{frame}[fragile]{Formats}
+
+\begin{lstlisting}
+
+AC_ISA(riscv)
+{
+
+ac_format rtype = "%funct7:7 %rs2:5 %rs1:5 %funct3:3 %rd:5 %opcode:7";
+
+}
+
+\end{lstlisting}
+
+\end{frame}
+
 \begin{frame}{Instructions}
+
+Instructions represent `individually decodable' units
+\begin{itemize}
+\item Somewhat flexible...
+\item<2-> But decode as much as possible at decode time!
+\item<3-> i.e., avoid general `ALU' instructions
+\end{itemize}
+
 \end{frame}
 
-\begin{frame}{Decoding}
+\begin{frame}[fragile]{Instructions}
 
-Elaborate example from before
+\begin{lstlisting}
+
+AC_ISA(riscv)
+{
+
+ac_format rtype = "%funct7:7 %rs2:5 %rs1:5 %funct3:3 %rd:5 %opcode:7";
+
+ac_instr<rtype> add;
+
+}
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Decoding}
+
+Let's consider an example from RISC-V:
+
+\pause
+
+\centering{
+RISC-V R-Type
+\includegraphics[width=\textwidth]{figures/format-riscv}
+}
+
+\bigskip
+\pause
+
+\centering{
+RISC-V ADD
+\includegraphics[width=\textwidth]{figures/risc-v-add}
+}
+
+\pause
+\bigskip
+
+\ttfamily\scriptsize{
+\begin{tabular}{l l}
+funct7 & 0b0000000 \\
+funct3 & 0b000 \\
+opcode & 0b0110011 \\
+\end{tabular}
+}
+
+\pause
+
+\begin{lstlisting}
+add.set_decoder(funct7=0x0, funct=0x0, opcode=0x33);
+\end{lstlisting}
 
 \end{frame}
+
+\begin{frame}[fragile]{Decoding}
+
+\begin{lstlisting}
+
+AC_ISA(riscv)
+{
+
+ac_format rtype = "%funct7:7 %rs2:5 %rs1:5 %funct3:3 %rd:5 %opcode:7";
+
+ac_instr<rtype> add;
+
+isa_ctor(riscv)
+{
+
+add.set_decoder(funct7=0x0, funct=0x0, opcode=0x33);
+
+}
+
+}
+
+\end{lstlisting}
+\end{frame}
+
 
 \begin{frame}{Branch Metadata}
 
