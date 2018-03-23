@@ -19,6 +19,28 @@ with aliased `views'.
 
 \end{frame}
 
+\newsavebox{\codeboxone}
+\begin{lrbox}{\codeboxone}
+\begin{lstlisting}
+ac_regspace(64) {
+	bank RB (uint32, 0, 16, 4, 1, 4, 4);
+	slot PC (uint32, 4, 60) PC;
+	slot SP (uint32, 4, 52) SP;
+}
+\end{lstlisting}
+\end{lrbox}
+
+\newsavebox{\codeboxtwo}
+\begin{lrbox}{\codeboxtwo}
+\begin{lstlisting}
+ac_regspace(256) {
+	bank FP_SP (float,  0, 32, 4, 1, 4, 4);
+	bank FP_DP (double, 0, 32, 8, 1, 8, 8);
+	bank FP_Q (float, 0, 16, 16, 4, 4, 4);
+}
+\end{lstlisting}
+\end{lrbox}
+
 \begin{frame}{Register File}
 
 Three types of entry
@@ -30,25 +52,75 @@ Three types of entry
 
 \end{frame}
 
-\begin{frame}{Register File}
+\begin{frame}[fragile]
+\frametitle{Register File}
 
 \centering
 \only<1>{
-	\includegraphics{figures/regbank-rb}
+	\includegraphics[height=0.5\textheight]{figures/regbank-rb}
 }
 
 \only<2>{
-	\includegraphics{figures/regbank-slots}
+	\includegraphics[height=0.5\textheight]{figures/regbank-slots}
 }
+
+\begin{minipage}[t]{0.95\textwidth}
+\begin{block}{}
+\usebox{\codeboxone}
+
+\only<1>{
+\smash{
+	\begin{tikzpicture}[fill opacity=0.3]
+		\draw[red,thick] (1.2, 1.05) rectangle (7.3, 1.35);
+		\draw[draw=none] (0,0) rectangle (0, 2.35);
+	\end{tikzpicture}
+}}
+\only<2>{
+\smash{
+	\begin{tikzpicture}[fill opacity=0.3]
+		\draw[red,thick] (1.2, 0.35) rectangle (5.8, 1.05);
+		\draw[draw=none] (0,0) rectangle (0, 2.35);
+	\end{tikzpicture}
+}}
+\end{block}
+\end{minipage}
 
 \end{frame}
 
 \begin{frame}{Register File - Vectors}
 
 \centering
-\only<1>{\includegraphics{figures/regbank-fp}}
-\only<2>{\includegraphics{figures/regbank-fp-dp}}
-\only<3>{\includegraphics{figures/regbank-fp-q}}
+\only<1>{\includegraphics[height=0.5\textheight]{figures/regbank-fp}}
+\only<2>{\includegraphics[height=0.5\textheight]{figures/regbank-fp-dp}}
+\only<3>{\includegraphics[height=0.5\textheight]{figures/regbank-fp-q}}
+
+\begin{minipage}[t]{0.95\textwidth}
+\begin{block}{}
+\usebox{\codeboxtwo}
+
+\only<1>{
+\smash{
+	\begin{tikzpicture}[fill opacity=0.3]
+		\draw[red,thick] (1.2, 1.05) rectangle (7.8, 1.35);
+		\draw[draw=none] (0,0) rectangle (0, 2.35);
+	\end{tikzpicture}
+}}
+\only<2>{
+\smash{
+	\begin{tikzpicture}[fill opacity=0.3]
+		\draw[red,thick] (1.2, 0.75) rectangle (7.8, 1.05);
+		\draw[draw=none] (0,0) rectangle (0, 2.35);
+	\end{tikzpicture}
+}}
+\only<3>{
+\smash{
+	\begin{tikzpicture}[fill opacity=0.3]
+		\draw[red,thick] (1.2, 0.40) rectangle (7.8, 0.70);
+		\draw[draw=none] (0,0) rectangle (0, 2.35);
+	\end{tikzpicture}
+}}
+\end{block}
+\end{minipage}
 
 \end{frame}
 
