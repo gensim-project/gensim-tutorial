@@ -1,0 +1,72 @@
+\section{Developing a Model}
+\subsection{}
+
+\begin{frame}{Developing a Model}
+
+Model development is not too difficult but can take a long time
+
+\begin{itemize}
+\item ARMv7 and RISC-V models developed by students with no prior experience
+\item Mostly a task of transcribing instruction pseudocode
+\item Can be easy to introduce subtle errors or edge cases
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Our Workflow}
+\end{frame}
+
+\begin{frame}{Continuous Build}
+
+% Jenkins
+% Model tests
+
+\end{frame}
+
+\begin{frame}{Instruction Fuzzing}
+Fuzzing is a randomized testing method
+
+\begin{itemize}
+\item<2-> Test instructions with many inputs against a ground truth
+\item<3-> We use QEMU as a ground truth
+\item<4-> \alert{Still problems with unspecified/undefined behaviour}
+\end{itemize}
+
+
+\onslide<5->{
+We have our own tools for instruction fuzzing (which are linked from GenSim website)
+}
+
+\end{frame}
+
+\begin{frame}{Debugging with Tracing}
+
+Once we're confident that our model works, we can run some larger programs
+
+\pause
+
+But they might still go wrong! How do we debug this?
+
+\end{frame}
+
+\begin{frame}{Debugging with Tracing}
+
+ArchSim can produce traces of architectural events
+\begin{itemize}
+\item Control flow/instructions executed
+\item Register reads/writes
+\item Memory reads/writes
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Debugging with Tracing}
+
+\end{frame}
+
+\begin{frame}{Model Optimisation}
+
+% Features
+% 
+
+\end{frame}
