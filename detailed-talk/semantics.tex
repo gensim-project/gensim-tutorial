@@ -1,5 +1,69 @@
 \subsection{Semantics Description}
 
-\begin{frame}{dummy}\end{frame}
+\begin{frame}{Semantics}
 
-% Lots!
+\end{frame}
+
+\begin{frame}{GenC}
+
+C-like language used to implement instruction behaviours
+\begin{itemize}
+\item C-like syntax
+\item Only basic types supported
+\item Vector types and operations supported natively
+\item Reference parameters are supported
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Architectural Manipulation}
+
+Processor state is manipulated using built-in functions
+\begin{itemize}
+\item Register accesses
+\item Memory access
+\item Privilege/ISA modes
+\item Floating Point Environment
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Register Access}
+Built-in functions available:
+\begin{lstlisting}
+slot_type read_register(slot_name)
+reg_type read_register_bank(bank_name, index)
+
+void write_register(slot_name, slot_type)
+void write_register_bank(bank_name, index, reg_type)
+\end{lstlisting}
+
+slot\_type depends on the type specified in the System Description
+
+\end{frame}
+
+\begin{frame}[fragile]{Memory Access}
+
+\begin{lstlisting}
+
+void mem_read_[8,16,32,64](address_type, uint[8,16,32,64]&)
+void mem_write_[8,16,32,64](address_type, uint[8,16,32,64])
+
+void mem_read_[8,16,32,64]_user(address_type, uint[8,16,32,64]&)
+void mem_write_[8,16,32,64]_user(address_type, uint[8,16,32,64])
+
+\end{lstlisting}
+
+`user' variants are used in full-system simulation, where certain 
+kernel-mode memory instructions (ldrt/strt in ARM) access memory with
+user privileges
+
+\end{frame}
+
+\begin{frame}{Vector Types}
+
+\end{frame}
+
+\begin{frame}{Intrinsics}
+
+\end{frame}
