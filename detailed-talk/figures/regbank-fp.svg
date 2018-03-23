@@ -26,15 +26,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.959798"
-     inkscape:cx="120.47773"
-     inkscape:cy="83.98689"
+     inkscape:cx="156.33815"
+     inkscape:cy="98.497535"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1051"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
+     inkscape:window-height="1020"
+     inkscape:window-x="0"
+     inkscape:window-y="31"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -268,5 +268,27 @@
          x="54.217712"
          id="tspan951"
          sodipodi:role="line">S7</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path1417"
+       d="M 62.214436,280.05893 V 295.913"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.89381707px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-279.51318"
+       y="62.711567"
+       id="text903-3-7"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan901-6-5"
+         x="-279.51318"
+         y="62.711567"
+         style="stroke-width:0.26458332px">256 Bytes</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 62.214436,253.35008 v 15.85407"
+       id="path2026"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>
