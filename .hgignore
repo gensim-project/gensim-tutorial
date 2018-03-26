@@ -1,0 +1,3 @@
+syntax:regexp
+\.aux$
+\.(fls|log|nav|out|snm|toc|vrb|synctex.gz|fdb_latexmk)$
