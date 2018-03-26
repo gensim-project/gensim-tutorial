@@ -70,7 +70,27 @@ ArchSim can produce traces of architectural events
 
 \begin{frame}{Model Optimisation}
 
-% Features
-% 
+Certain code structures can lead to poor performance:
+\begin{itemize}
+\item Very complex instructions
+\item Non-fixed loop bounds
+\item `Hand written' predicates
+\item Enablement checks (can be solved using Features)
+\end{itemize} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Model Optimisation}
+\begin{lstlisting}
+if(read_register(FP_ENABLED)) {
+	// do something
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+if(__builtin_get_feature(FP_ENABLED)) {
+	// do something
+}
+\end{lstlisting}
 
 \end{frame}
