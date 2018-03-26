@@ -93,6 +93,19 @@ Interpretation & 1000x & Low \\
 
 \end{frame}
 
+\begin{frame}[fragile]{Example QEMU Instruction}
+\begin{lstlisting}[language=C]
+target_long imm = sextract64(inst, 20,12);
+int rs1 = extract32(inst, 15, 5);
+int rd  = extract32(inst, 7, 5);
+TCGv source1 = tcg_temp_new();
+gen_get_gpr(source1, rs1);
+tcg_gen_addi_tl(source1, source1, imm);
+gen_set_gpr(rd, source1);
+tcg_temp_free(source1);
+\end{lstlisting}
+\end{frame}
+
 \subsection{Architecture Description Languages}
 
 \begin{frame}
@@ -109,6 +122,35 @@ ADLs are useful tools for systems development. They let us:
 	\item<4-> ...separate the behaviour of tools from their implementation
 \end{itemize}
 
+\end{frame}
+
+\begin{frame}[fragile]{QEMU/ADL Comparison}
+    \begin{minipage}{0.47\textwidth}
+        \begin{lstlisting}[basicstyle=\tt\tiny,frame=single]
+sint32 imm = inst.imm;
+imm <<= 20;
+imm >>= 20;
+
+sint32 rs = read_register_bank(inst.rs1);
+
+rs += imm;
+
+write_register_bank(GPR, inst.rd, rs);
+    \end{lstlisting}
+    \end{minipage} %
+    \quad %
+    \begin{minipage}{0.48\textwidth}
+        \begin{lstlisting}[language=C,basicstyle=\tt\tiny,frame=single]
+target_long imm = sextract64(inst, 20,12);
+int rs1 = extract32(inst, 15, 5);
+int rd  = extract32(inst, 7, 5);
+TCGv source1 = tcg_temp_new();
+gen_get_gpr(source1, rs1);
+tcg_gen_addi_tl(source1, source1, imm);
+gen_set_gpr(rd, source1);
+tcg_temp_free(source1);
+        \end{lstlisting}
+    \end{minipage}
 \end{frame}
 
 \begin{frame}
