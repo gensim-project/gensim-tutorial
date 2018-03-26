@@ -1,8 +1,52 @@
 \section{Model Components}
+\subsection{}
+
+\newsavebox{\modelcomponentsbox}
+\begin{lrbox}{\modelcomponentsbox}
+\begin{columns}
+\begin{column}{0.25\textwidth}
+\centering
+System
+
+\bigskip
+
+\includegraphics[width=\textwidth]{../intro-talk/figures/component-system}
+\end{column}
+\begin{column}{0.25\textwidth}
+\centering
+Syntax
+
+\bigskip
+
+\includegraphics[width=\textwidth]{../intro-talk/figures/component-syntax}
+\end{column}
+\begin{column}{0.25\textwidth}
+\centering
+Semantics
+
+\bigskip
+
+\includegraphics[width=\textwidth]{../intro-talk/figures/component-semantics}
+\end{column}
+\end{columns}
+
+\end{lrbox}
+
+\begin{frame}{Model Components}
+\usebox{\modelcomponentsbox}
+\smash{}
+\end{frame}
+
 \subsection{System Description}
 
 \begin{frame}{System Description}
-%Section title slide
+\usebox{\modelcomponentsbox}
+\smash{
+	\begin{tikzpicture}[fill opacity=0.3]
+		\draw[red,thick] (0, 0) rectangle (2.9, 2.3);
+		\draw[draw=none] (0,0) rectangle (0, 2.35);
+	\end{tikzpicture}
+}
 \end{frame}
 
 \begin{frame}{System Description}
