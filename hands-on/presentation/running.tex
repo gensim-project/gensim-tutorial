@@ -2,16 +2,107 @@
 \section{Running ArchSim}
 \subsection{}
 
-\begin{frame}{Running ArchSim}
+\newsavebox{\runningarchsimbox}
+\begin{lrbox}{\runningarchsimbox}
+\begin{lstlisting}[basicstyle=\tiny\ttfamily]
+ 		Archsim: The Edinburgh High Speed (EHS) Simulator
+ 			University of Edinburgh (c) 2017
+ 				Revision : 5979651a74c9+ tip
+ 				Configuration: "Debug (Opt)"
 
-\end{frame}
+Hello, world!
 
-\begin{frame}{Default Configuration}
+\end{lstlisting}
+\end{lrbox}
+
+\begin{frame}[fragile]{Running ArchSim}
+Now that everything is built, it's time to run some simulations!
+
+\begin{lstlisting}
+gensim/build/dist/bin/archsim-armv7a-user $(mat)/running/hello
+\end{lstlisting}
+
+\only<2>{
+Output:
+
+\usebox{\runningarchsimbox}
+}
 
 \end{frame}
 
 % Instructions on how to run custom simulations
 \begin{frame}{Advanced Configuration}
+
+Although the default configuration is fine for straightforward simulation,
+if you want to simulate other architectures or systems then you need to
+call ArchSim directly.
+
+\end{frame}
+
+\begin{frame}[fragile]{Advanced Configuration}
+
+{\ttfamily archsim-armv7a-user} is a script which calls ArchSim. Let's
+have a closer look at it, and in particular the line which actually
+calls ArchSim:
+
+\centering
+\begin{minipage}{\textwidth}
+\centering
+\begin{lstlisting}
+$ARCHSIM -m arm-user -s armv7a --mode interp -l contiguous -e $ELF
+\end{lstlisting}
+
+\only<2>{
+\smash{
+	\begin{tikzpicture}[fill opacity=0.3]
+		\draw[red,thick] (1.3, 0.5) rectangle (3.3, 1);
+		\draw[draw=none] (0,0) rectangle (0, 1);
+	\end{tikzpicture}%
+}
+}
+\only<3>{
+\smash{
+	\begin{tikzpicture}[fill opacity=0.3]
+		\draw[red,thick] (3.4, 0.5) rectangle (5.0, 1);
+		\draw[draw=none] (0,0) rectangle (0, 1);
+	\end{tikzpicture}%
+}
+}
+\only<4>{
+\smash{
+	\begin{tikzpicture}[fill opacity=0.3]
+		\draw[red,thick] (5.1, 0.5) rectangle (7.4, 1);
+		\draw[draw=none] (0,0) rectangle (0, 1);
+	\end{tikzpicture}%
+}
+}
+\only<5>{
+\smash{
+	\begin{tikzpicture}[fill opacity=0.3]
+		\draw[red,thick] (7.45, 0.5) rectangle (9.8, 1);
+		\draw[draw=none] (0,0) rectangle (0, 1);
+	\end{tikzpicture}%
+}
+}
+\only<6>{
+\smash{
+	\begin{tikzpicture}[fill opacity=0.3]
+		\draw[red,thick] (9.8, 0.5) rectangle (11.1, 1);
+		\draw[draw=none] (0,0) rectangle (0, 1);
+	\end{tikzpicture}%
+}
+}
+
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+\only<2>{The Emulation Model - How is the binary loaded? What happens when an exception occurs?}
+\only<3>{The Guest Architecture - What guest architecture should be used?}
+\only<4>{The Execution Mode - at the moment should always be set to `interp'}
+\only<5>{The Memory Model - How should underlying memory be stored?}
+\only<6>{The target binary - which binary should be loaded for simulation?}
+\end{minipage}
+
 
 \end{frame}
 
