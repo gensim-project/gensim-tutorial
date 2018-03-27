@@ -1,3 +1,99 @@
 % Instructions to download and build gensim
+\section{Building GenSim}
+\subsection{}
+
+\begin{frame}{Building GenSim}
+Building GenSim takes three steps:
+\begin{enumerate}
+\item Install dependencies
+\item Check out GenSim source code
+\item Compile
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Install dependencies}
+
+GenSim has the following dependencies, which are generally available
+and can be installed with your distro's package manager (they may have
+different names):
+
+\begin{itemize}
+\item autoconf
+\item cmake
+\item default-jre-headless
+\item g++
+\item libantlr3c-dev
+\item libncurses5-dev
+\item make
+\item mercurial
+\item wget
+\item zlib1g-dev
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Check Out Source Code}
+GenSim source code is kept in a Mercurial repository on BitBucket. The
+code can be obtained by checking out that repository, by running the 
+command:
+
+\begin{lstlisting}
+hg clone http://bitbucket.org/gensim/gensim
+\end{lstlisting}
+
+After the repository is checked out, you can change directory into the repository:
+
+\begin{lstlisting}
+cd gensim
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Compile}
+
+At this point, everything should be ready for you to compile GenSim!
+Simply run
+
+\begin{lstlisting}
+make
+\end{lstlisting}
+
+... and a short while later GenSim should be compiled. If you have a 
+multicore machine and wish to use additional compilation agents, you
+can run
+
+\begin{lstlisting}
+make -j{N}
+\end{lstlisting}
+
+Where \{N\} is the number of build agents to use.
+
+\end{frame}
+
+\begin{frame}{The Built Tools}
+
+You can find the built targets in gensim/build/dist/bin:
+\bigskip
+
+\begin{tabular}{ll}
+archsim				& The ArchSim simulator \\
+archsim-armv7a-user & A script to run ARMv7a binaries \\
+gensim              & The GenSim ADL Processing tool \\
+TraceCat            & A tool to format binary trace files \\
+TraceLess           & A pager for binary trace files \\
+TracePCDiff         & A 	diff tool (based on PC) for trace files \\
+\end{tabular}
+
+\end{frame}
 
 % Instructions on how to get a prepared VM image (if running windows or mac)
+
+\begin{frame}{Getting a GenSim VM}
+
+If you can't get GenSim to build, or don't have access to one of the
+supported Linux distributions, you can try using a pre-prepared 
+VirtualBox image.
+
+% TODO: prepare VB image
+
+\end{frame}
