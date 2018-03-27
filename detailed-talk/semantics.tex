@@ -67,7 +67,60 @@ user privileges
 
 \end{frame}
 
-\begin{frame}{Vector Types}
+\newsavebox{\vectorboxone}
+\begin{lrbox}{\vectorboxone}
+\begin{lstlisting}
+float[2] fp_vector;
+uint32[4] u32_vector;
+\end{lstlisting}
+\end{lrbox}
+
+\newsavebox{\vectorboxtwo}
+\begin{lrbox}{\vectorboxtwo}
+\begin{lstlisting}
+fp_vector = read_register_bank(FP_SP2, inst.vm);
+write_register_bank(U32_V, inst.vm, u32_vector);
+\end{lstlisting}
+\end{lrbox}
+
+\newsavebox{\vectorboxthree}
+\begin{lrbox}{\vectorboxthree}
+\begin{lstlisting}
+// pairwise addition
+result_vector = fp_vector + fp_vector;
+
+// operation by scalar
+result_vector = fp_vector + 10.0;
+\end{lstlisting}
+\end{lrbox}
+
+
+\begin{frame}[fragile]{Vector Types}
+
+GenC has support for vector types and operations on values of those types
+\begin{itemize}
+\item \alert<2>{Vectors are declared using array notation}
+\item \alert<3>{Vectors can be read and written to register banks}
+\item \alert<4>{Arithmetic operations can be performed on vectors}
+\end{itemize}
+
+\begin{columns}
+\begin{column}{0.99\textwidth}
+\centering
+\only<2>{
+\usebox{\vectorboxone}%
+}
+\only<3>{
+\usebox{\vectorboxtwo}%
+}
+\only<4>{
+\usebox{\vectorboxthree}%
+}
+\end{column}
+\begin{column}{0.01\textwidth}
+\vspace{0.3\textheight}
+\end{column}
+\end{columns}
 
 \end{frame}
 
