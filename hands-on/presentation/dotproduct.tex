@@ -1,19 +1,141 @@
 % Instructions on how to add dot product instruction to RISC-V model
 \section{Modifying an Existing Model}
+
 \begin{frame}{Modifying an Existing Model}
 
 \end{frame}
 
-\begin{frame}{The New Instruction}
+\begin{frame}[fragile]{The New Instruction}
+
+Let's an an integer dot product instruction to the instruction set. 
+The instruction will operate on two pairs of registers:
+
+\begin{lstlisting}
+$(rd) = $(rs1) * $(rs1+1) + $(rs2) * $(rs2 + 1)
+\end{lstlisting}
+
+RISC-V has instruction space reserved for customisation, which this 
+instruction will use.
 
 \end{frame}
 
 \begin{frame}{Encoding the Instruction}
 
+% models/risc-v/riscv_isa.ac
+
+% use format Type_R
+
+% opcode == 0b0001011
+
+% funct3 = 0
+
+% funct7 = 0
+
+First, we need to settle on the encoding for the instruction. The 32-bit
+RISC-V opcode space is divided into 28 subspaces, several of
+which are reserved for custom extensions. 
+
+\bigskip
+
+We will use the custom-0 space, which uses the 0b0001011 opcode.
+
+\smallskip
+
+We'll use the R-Type format, since we're doing an operation on registers.
+
+\smallskip
+
+To keep things simple, we'll fill 0s in to the instruction function
+fields.
+
+\end{frame}
+
+\begin{frame}{Instruction Syntax}
+
+Let's start editing the model! Open up {\ttfamily gensim/models/risc-v/riscv\_isa.ac}.
+
+This is the Syntax Description file for the base RISC-V instruction set.
+To keep things simple, we'll edit this file rather than creating a new 
+file for our extension. 
+
+\end{frame}
+
+\begin{frame}[fragile]{Instruction Syntax - Adding the new Instruction}
+
+If you scroll to line 39, you'll find a section of the file which 
+declares which instructions are available in the instruction set. Each
+instruction is attached for a format, and they are declared in a 
+`template'-like manner.
+
+\smallskip
+
+Line 52 specifies the instructions for the R-Type format. Add a 
+{\ttfamily dotproduct} entry to the end of this line, like this:
+
+\begin{lstlisting}
+ac_instr<Type_R> add,sub,sll,slt,sltu,xor,srl,sra,or,and,dotproduct;
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Instruction Syntax - Declaring the Instruction Behaviour}
+From Line 74, the instruction semantic behaviours are declared. We need
+to add a new line for our dotproduct instruction
+
+\begin{lstlisting}
+ac_behaviour dotproduct;
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Instruction Syntax - Decoding the new Instruction}
+
+From Line 124, the decoding for each instruction is described. For our
+new dotproduct instruction, we'll need to add a couple of new lines. 
+Add the following lines to the section (the position doesn't matter):
+
+\begin{lstlisting}
+dotproduct.set_decoder(opcode=0x0b, funct3=0x0, funct7=0x0);
+dotproduct.set_behaviour(dotproduct);
+\end{lstlisting}
+
 \end{frame}
 
 \begin{frame}{The Instruction Semantics}
 
+That's all we need to decode the instruction. Now, we need to specify
+the semantics of the instruction. Open {\ttfamily gensim/models/risc-v/execute.riscv}.
+
+\bigskip
+
+In this file, the semantic behaviour of each RISC-V instruction is specified.
+
+\end{frame}
+
+\begin{frame}[fragile]{The Instruction Semantics}
+
+Add the following text to the start of the file:
+
+\begin{lstlisting}
+execute(dotproduct) {
+	uint32 rs1a = read_register_bank(GPR, inst.rs1);
+	uint32 rs1b = read_register_bank(GPR, inst.rs1+1);
+	uint32 rs2a = read_register_bank(GPR, inst.rs2);
+	uint32 rs2b = read_register_bank(GPR, inst.rs2+1);
+	
+	uint32 result = (rs1a * rs1b) + (rs2a * rs2b);
+	
+	write_register_bank(GPR, inst.rd, result);
+}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}{Building the model}
+We've now added enough to the model to decode and execute our new 
+instruction, so we need to rebuild the model. Go to the root of the
+gensim repository and run {\ttfamily make}. If the system builds with no errors,
+then you can now run simulations using the new instruction!
 \end{frame}
 
 \begin{frame}{Using The Instruction}

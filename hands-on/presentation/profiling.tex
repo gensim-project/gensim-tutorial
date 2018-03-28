@@ -4,12 +4,52 @@
 
 \begin{frame}{Obtaining Simulation Statistics}
 
+ArchSim provides features to collect simulation statistics in a variety
+of ways. We've already seen how basic statistics can be collected, but
+they're mainly about the simulator rather than the simulated binary.
+
+Additional profiling features include histograms of:
+\begin{itemize}
+\item Instruction types executed
+\item PC frequencies
+\item Instruction code frequencies
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{Profiling Information}
 
+These histograms can be obtained with the following command-line flags:
+
+\begin{itemize}
+\item Instruction types: {\ttfamily ---verbose ---profile}
+\item PC frequencies: {\ttfamily ---verbose ---profile-pc}
+\item Instruction codes: {\ttfamily ---verbose ---profile-ir}
+\end{itemize}
+
+The IR and PC histograms are written out to ir\_freq.out and pc\_freq.out.
+
+\end{frame}
+
+\begin{frame}[fragile]{Tracing}
+
+If these features do not provide enough detail, then a full trace can
+be obtained and processed.
+
+The following flags can be added to enable tracing:
+
+\begin{lstlisting}
+--trace --trace-file $(output-file)
+\end{lstlisting}
+
+This will write a trace out to a file called \$(output-file).
+
 \end{frame}
 
 \begin{frame}{Tracing}
+
+The TraceCat and TraceLess tools can be used to view the traces. 
+Alternatively, a custom tool can be used to perform other analysis or
+trace-based simulation.
 
 \end{frame}
