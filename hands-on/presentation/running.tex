@@ -49,7 +49,7 @@ calls ArchSim:
 \begin{minipage}{\textwidth}
 \centering
 \begin{lstlisting}
-$ARCHSIM -m arm-user -s armv7a --mode interp -l contiguous -e $ELF
+$ARCHSIM -m arm-user -s armv7a -l contiguous -e $ELF
 \end{lstlisting}
 
 \only<2>{
@@ -79,15 +79,7 @@ $ARCHSIM -m arm-user -s armv7a --mode interp -l contiguous -e $ELF
 \only<5>{
 \smash{
 	\begin{tikzpicture}[fill opacity=0.3]
-		\draw[red,thick] (7.45, 0.5) rectangle (9.8, 1);
-		\draw[draw=none] (0,0) rectangle (0, 1);
-	\end{tikzpicture}%
-}
-}
-\only<6>{
-\smash{
-	\begin{tikzpicture}[fill opacity=0.3]
-		\draw[red,thick] (9.8, 0.5) rectangle (11.1, 1);
+		\draw[red,thick] (7.45, 0.5) rectangle (8.8, 1);
 		\draw[draw=none] (0,0) rectangle (0, 1);
 	\end{tikzpicture}%
 }
@@ -98,9 +90,8 @@ $ARCHSIM -m arm-user -s armv7a --mode interp -l contiguous -e $ELF
 \begin{minipage}{\textwidth}
 \only<2>{The Emulation Model - How is the binary loaded? What happens when an exception occurs?}
 \only<3>{The Guest Architecture - What guest architecture should be used?}
-\only<4>{The Execution Mode - at the moment should always be set to `interp'}
-\only<5>{The Memory Model - How should underlying memory be stored?}
-\only<6>{The target binary - which binary should be loaded for simulation?}
+\only<4>{The Memory Model - How should underlying memory be stored?}
+\only<5>{The target binary - which binary should be loaded for simulation?}
 \end{minipage}
 
 \end{frame}
@@ -110,7 +101,7 @@ $ARCHSIM -m arm-user -s armv7a --mode interp -l contiguous -e $ELF
 Let's try running with a custom configuration. We'll add the {\ttfamily ---verbose} flag, which will cause simulation information to be printed:
 
 \begin{lstlisting}[basicstyle=\ttfamily\ssmall]
-archsim -m arm-user -s armv7a --mode interp -l contiguous --verbose -e $(mat)/running/hello
+archsim -m arm-user -s armv7a -l contiguous --verbose -e $(mat)/running/hello
 \end{lstlisting}
 
 This will cause some simulation statistics to be printed, including
@@ -119,6 +110,13 @@ speed, instruction count, simulation time, etc.
 \end{frame}
 
 % Instructions on how to run prepared RISC-V binaries
-\begin{frame}{RISC-V}
+\begin{frame}[fragile]{RISC-V}
+
+GenSim also has a RISC-V model. We can use this model by changing the 
+command-line flags:
+
+\begin{lstlisting}[basicstyle=\ttfamily\ssmall]
+archsim -m riscv-user -s riscv -l contiguous -e $(mat)/running/hello-riscv
+\end{lstlisting}
 
 \end{frame}
