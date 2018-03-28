@@ -103,6 +103,18 @@ $ARCHSIM -m arm-user -s armv7a --mode interp -l contiguous -e $ELF
 \only<6>{The target binary - which binary should be loaded for simulation?}
 \end{minipage}
 
+\end{frame}
+
+\begin{frame}[fragile]{Advanced Configuration}
+
+Let's try running with a custom configuration. We'll add the {\ttfamily ---verbose} flag, which will cause simulation information to be printed:
+
+\begin{lstlisting}[basicstyle=\ttfamily\ssmall]
+archsim -m arm-user -s armv7a --mode interp -l contiguous --verbose -e $(mat)/running/hello
+\end{lstlisting}
+
+This will cause some simulation statistics to be printed, including
+speed, instruction count, simulation time, etc.
 
 \end{frame}
 
