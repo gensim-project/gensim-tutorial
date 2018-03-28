@@ -138,6 +138,23 @@ gensim repository and run {\ttfamily make}. If the system builds with no errors,
 then you can now run simulations using the new instruction!
 \end{frame}
 
-\begin{frame}{Using The Instruction}
+\begin{frame}[fragile]{Using The Instruction}
+
+Now that we have built the model containing the new instruction, we can
+run a program which uses it! The {\ttfamily \$(mat)/riscv-dotproduct} directory contains
+an example program which uses this instruction. We can run this program to
+test our new instruction:
+
+\begin{lstlisting}[basicstyle=\ttfamily\ssmall]
+archsim -s riscv -m riscv-user -l contiguous -e $(mat)/riscv-dotproduct/dotproduct
+\end{lstlisting}
+
+\bigskip
+
+\begin{lstlisting}
+Operands: (1804289383, 846930886) (1681692777, 1714636915)
+C Result: 4088578517
+Asm Result: 4088578517
+\end{lstlisting}
 
 \end{frame}
