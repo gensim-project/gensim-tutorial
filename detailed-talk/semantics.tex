@@ -124,6 +124,15 @@ GenC has support for vector types and operations on values of those types
 
 \end{frame}
 
-\begin{frame}{Intrinsics}
+\begin{frame}[fragile]{Intrinsics}
+
+There are a large number of intrinsics available for either manipulating
+the architectural state or performing other operations. For example:
+
+\begin{itemize}
+\item {\ttfamily take\_exception} - trigger an exception
+\item {\ttfamily \_\_builtin\_clz} - count leading zeros
+\item {\ttfamily bitcast\_float\_u32} - `bitcast' a float to a uint32
+\end{itemize}
 
 \end{frame}
