@@ -2,7 +2,7 @@
 \subsection{}
 
 \begin{frame}{Developing a Model}
-%Section title slide
+So how do we build a model from the ground up?
 \end{frame}
 
 \begin{frame}{Developing a Model}
@@ -18,9 +18,25 @@ Model development is not too difficult but can take a long time
 \end{frame}
 
 \begin{frame}{Our Workflow}
+
+We generally start small and work our way up:
+\begin{itemize}
+\item Implement enough instructions for a Hello World program
+\begin{itemize}
+\item (this can be quite a few due to startup/shutdown code)
+\end{itemize}
+\item Then try small benchmarks (e.g., EEMBC, MyBench)
+\item Work up to larger benchmarks (e.g., SPEC)
+\end{itemize}
+
+The model should be tested at each step (using fuzzing/small unit tests)
+
 \end{frame}
 
-\begin{frame}{Continuous Build}
+\begin{frame}{Continuous Build/Test}
+
+We use Jenkins for continuous build. Each commit to GenSim, ArchSim and 
+each supported model is built and tested.
 
 % Jenkins
 % Model tests
@@ -53,18 +69,19 @@ But they might still go wrong! How do we debug this?
 
 \end{frame}
 
+
 \begin{frame}{Debugging with Tracing}
 
-ArchSim can produce traces of architectural events
+We can carefully inspect a trace of the simulation and try and see
+what went wrong.
 \begin{itemize}
-\item Control flow/instructions executed
-\item Register reads/writes
-\item Memory reads/writes
+\item This can be quite a tedious and error-prone process
+\item It is usually necessary to narrow down the issue beforehand
+\item Key idea is to spot errors in execution manually
+\begin{itemize}
+\item Need to be very familiar with the architecture!
 \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Debugging with Tracing}
+\end{itemize}
 
 \end{frame}
 
