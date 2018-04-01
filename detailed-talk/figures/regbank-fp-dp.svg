@@ -26,15 +26,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.959798"
-     inkscape:cx="143.78398"
-     inkscape:cy="95.953796"
+     inkscape:cx="93.276353"
+     inkscape:cy="94.943643"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1020"
+     inkscape:window-height="1016"
      inkscape:window-x="0"
-     inkscape:window-y="31"
+     inkscape:window-y="27"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -147,14 +147,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.30729151px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="30.513739"
+       x="27.642467"
        y="251.92635"
        id="text958"><tspan
          sodipodi:role="line"
          id="tspan956"
-         x="30.513739"
+         x="27.642467"
          y="251.92635"
-         style="stroke-width:0.26458332px">ARM FP Bank</tspan></text>
+         style="stroke-width:0.26458332px">ARM NEON Bank</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 41.388397,253.36825 v 42.42904"
