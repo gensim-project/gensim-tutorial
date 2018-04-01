@@ -46,10 +46,16 @@ This will write a trace out to a file called \$(output-file).
 
 \end{frame}
 
-\begin{frame}{Tracing}
+\begin{frame}[fragile]{Tracing}
 
 The TraceCat and TraceLess tools can be used to view the traces. 
 Alternatively, a custom tool can be used to perform other analysis or
 trace-based simulation.
+
+\begin{lstlisting}
+build/dist/bin/TraceLess $(trace file)
+\end{lstlisting}
+
+This tool behaves like {\ttfamily less} (although not quite as feature rich)
 
 \end{frame}
