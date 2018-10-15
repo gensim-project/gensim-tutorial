@@ -84,6 +84,9 @@ A GenSim description consists of three components
 
 \begin{frame}{Available Models}
 
+\centering
+\begin{columns}
+\begin{column}{0.6\textwidth}
 \begin{itemize}
 	\item ARMv7-A 
 	\only<2>{
@@ -108,7 +111,41 @@ A GenSim description consists of three components
 			\item User Mode only
 		\end{itemize}
 	}
+	\item x86-64
+	\only<5>{
+		\begin{itemize}
+			\item External decoder
+			\item User Mode only
+		\end{itemize}
+	}
 \end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+
+\only<2>{
+\centering
+\includegraphics[width=\textwidth]{figures/rpi1}\\
+\centering
+\tiny{Raspberry Pi Model B}
+}
+\only<3>{
+\centering
+\includegraphics[width=\textwidth]{figures/rpi2}\\
+\tiny{Raspberry Pi 3 Model B+}
+}
+\only<4>{
+\centering
+\includegraphics[width=\textwidth]{figures/riscv-sifive}\\
+\tiny{SiFive RISC-V SBC}
+}
+\only<5>{
+\centering
+\includegraphics[width=\textwidth]{figures/x86-sbc}\\
+\tiny{ADL ADLE3800SEC}
+}
+
+\end{column}
+\end{columns}
 
 \end{frame}
 
