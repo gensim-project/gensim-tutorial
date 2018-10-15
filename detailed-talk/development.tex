@@ -35,9 +35,21 @@ The model should be tested at each step (using fuzzing/small unit tests)
 
 \begin{frame}{Continuous Build/Test}
 
-We use Jenkins for continuous build. Each commit to GenSim, ArchSim and 
-each supported model is built and tested.
+We use Jenkins for continuous build.
+\begin{itemize}
+\item Commits to GenSim repo are built and tested
+\item All supported repos tested via Docker
+\end{itemize}
 
+\bigskip
+\bigskip
+
+\centering
+\includegraphics[height=0.25\textheight]{figures/jenkins}
+\qquad\qquad
+\includegraphics[height=0.25\textheight] {figures/docker}
+
+\blfootnote{Jenkins: http://jenkins.io, Docker: http://www.docker.com/}
 % Jenkins
 % Model tests
 
@@ -111,3 +123,34 @@ if(__builtin_get_feature(FP_ENABLED)) {
 \end{lstlisting}
 
 \end{frame}
+
+
+\begin{frame}{The x86-64 Model}
+
+\begin{itemize}
+\item The newest supported GenSim model
+\item Runs Linux User Mode applications
+\item Some SSE and x87 Support
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{X86 Instruction Decoding}
+\begin{itemize}
+\item x86 has a stateful instruction encoding
+\item This can't be easily handled by GenSim
+\item We handle this by using the Intel XED library
+\item Instruction semantics still use GenSim
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Experiences with x86}
+
+\begin{itemize}
+\item Biggest issue is inconsistency
+\item Lots of 'defined undefinedness' makes testing tricky
+\item Otherwise handled fairly well in GenSim
+\end{itemize}
+
+\end{frame}
+
