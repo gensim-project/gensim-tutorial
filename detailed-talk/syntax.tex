@@ -184,27 +184,18 @@ add.set_decoder(funct7=0x0, funct=0x0, opcode=0x33);
 \begin{frame}{Branch Metadata}
 
 Used to indicate which instructions can change the PC
-
-Important for DBT-based tools since they need to know the boundaries of basic blocks
-
-Can also be used for various optimisations (LCTES 2014)
+\begin{itemize}
+\item Is an instruction an end-of-block?
+\item Is it a direct jump? What is it's target?
+\item Is it an indirect jump?
+\end{itemize}
+\smallskip
+Can also be used for various optimisations.\footnote{LCTES'14, \url{http://doi.acm.org/10.1145/2666357.2597810}}
 
 % DBT systems can take advantage
 
 % Can't easily tell if an instruction is a jump
 % - would need to detect writes to PC register
 % - could be aliased with a bank
-
-\end{frame}
-
-\begin{frame}{Branch Metadata}
-
-Three pieces of information per instruction:
-
-\begin{itemize}
-\item Is an instruction a branch?
-\item Is it direct, or indirect?
-\item If it is direct, how is that target calculated?
-\end{itemize}
 
 \end{frame}
