@@ -12,6 +12,15 @@ What is Instruction Set Simulation?
 \item<4-> May be timing accurate
 \end{itemize}
 
+\only<2-4>{
+\centering
+\onslide<2-4>{\includegraphics[width=0.25\textwidth]{figures/computers}}
+\qquad
+\onslide<3-4>{\includegraphics[width=0.25\textwidth]{figures/instrumentation}}
+\qquad
+\onslide<4-4>{\includegraphics[width=0.25\textwidth]{figures/stopwatch}}
+}
+
 \onslide<5->{
 Note that this also covers associated technologies!
 %e.g. binary instrumentation, virtualisation
@@ -114,31 +123,26 @@ tcg_temp_free(source1);
 ADLs are useful tools for systems development. They let us:
 \begin{itemize}
 	\item<2-> ...describe systems at different levels of abstraction
-%	\begin{itemize}
-%		\item<2-> At a low level, for cycle-accurate simulation
-%		\item<2-> At a high level, for rapid prototyping
-%	\end{itemize}
 	\item<3-> ...use new technologies without rewriting all of our tools
 	\item<4-> ...separate the behaviour of tools from their implementation
 \end{itemize}
 
+\bigskip
+
+\centering
+\onslide<2->{
+	\includegraphics[width=0.25\textwidth]{figures/adl-levels-small}\qquad
+}
+\onslide<3->{
+	\includegraphics[width=0.25\textwidth]{figures/tool-portability}\qquad
+}
+\onslide<4->{
+	\includegraphics[width=0.25\textwidth]{figures/implementation-separation}
+}
+
 \end{frame}
 
 \begin{frame}[fragile]{QEMU/ADL Comparison}
-    \begin{minipage}{0.47\textwidth}
-        \begin{lstlisting}[basicstyle=\tt\tiny,frame=single]
-sint32 imm = inst.imm;
-imm <<= 20;
-imm >>= 20;
-
-sint32 rs = read_register_bank(inst.rs1);
-
-rs += imm;
-
-write_register_bank(GPR, inst.rd, rs);
-    \end{lstlisting}
-    \end{minipage} %
-    \quad %
     \begin{minipage}{0.48\textwidth}
         \begin{lstlisting}[language=C,basicstyle=\tt\tiny,frame=single]
 target_long imm = sextract64(inst, 20,12);
@@ -150,6 +154,21 @@ tcg_gen_addi_tl(source1, source1, imm);
 gen_set_gpr(rd, source1);
 tcg_temp_free(source1);
         \end{lstlisting}
+        
+    \end{minipage} %
+    \quad %
+    \begin{minipage}{0.47\textwidth}
+\begin{lstlisting}[basicstyle=\tt\tiny,frame=single]
+sint32 imm = inst.imm;
+imm <<= 20;
+imm >>= 20;
+
+sint32 rs = read_register_bank(inst.rs1);
+
+rs += imm;
+
+write_register_bank(GPR, inst.rd, rs);
+    \end{lstlisting}
     \end{minipage}
 \end{frame}
 

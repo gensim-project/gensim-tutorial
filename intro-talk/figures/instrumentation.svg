@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="50mm"
+   height="50mm"
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg1020"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="instrumentation.svg">
+  <defs
+     id="defs1014" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="59.642948"
+     inkscape:cy="85.457594"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1020"
+     inkscape:window-x="0"
+     inkscape:window-y="31"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata1017">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-247)">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1658"
+       width="38.419994"
+       height="50.313492"
+       x="4.8454347"
+       y="248.29553" />
+    <rect
+       y="249.88301"
+       x="3.2579346"
+       height="50.313492"
+       width="38.419994"
+       id="rect1656"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1565"
+       width="38.419994"
+       height="50.313492"
+       x="1.1412678"
+       y="251.99965" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1578"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:monospace;-inkscape-font-specification:monospace;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(0.26458333,0,0,0.26458333,-0.52916667,250.17501)"><flowRegion
+         id="flowRegion1580"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"><rect
+           id="rect1582"
+           width="136.87567"
+           height="178.54446"
+           x="10.101525"
+           y="12.957298"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace" /></flowRegion><flowPara
+         id="flowPara1584">add r0, r1, r2</flowPara><flowPara
+         id="flowPara1586">ldr r1, [r0, #10]</flowPara><flowPara
+         id="flowPara1588">mov r8, r9</flowPara><flowPara
+         id="flowPara1590">str r10, [r8, #4]!</flowPara><flowPara
+         id="flowPara1592">bl memcpy</flowPara><flowPara
+         id="flowPara1594">mov r0, r4</flowPara><flowPara
+         id="flowPara1596">ldr r4, [r8]</flowPara><flowPara
+         id="flowPara1598">add r0, r1, r2</flowPara><flowPara
+         id="flowPara1600">ldr r1, [r0, #10]</flowPara><flowPara
+         id="flowPara1602">mov r8, r9</flowPara><flowPara
+         id="flowPara1604">str r10, [r8, #4]!</flowPara><flowPara
+         id="flowPara1606" /></flowRoot>    <path
+       style="fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 21.548376,254.35977 a 13.396885,13.396885 0 0 0 -13.3965992,13.39712 13.396885,13.396885 0 0 0 13.3965992,13.3966 13.396885,13.396885 0 0 0 8.069273,-2.72335 l 19.838583,19.83858 2.503722,-2.50424 -19.81791,-19.81843 a 13.396885,13.396885 0 0 0 2.803446,-8.18916 13.396885,13.396885 0 0 0 -13.397114,-13.39712 z m 0,1.87069 A 11.525998,11.525998 0 0 1 33.074803,267.75689 11.525998,11.525998 0 0 1 21.548376,279.2828 11.525998,11.525998 0 0 1 10.022464,267.75689 11.525998,11.525998 0 0 1 21.548376,256.23046 Z"
+       id="path1567"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
