@@ -29,10 +29,13 @@ ArchSim can accept a variety of modules
 \begin{itemize}
 	\item GenSim processor modules
 	\item External devices
+	\item Execution Engines
 \end{itemize}
 
-This allows devices to be developed as closed-source and still be used
-by ArchSim
+\smallskip
+
+This allows processor models, devices, and new simulation technologies 
+to be developed as closed-source and still be used by ArchSim.
 
 % Processor modules from GenSim
 % Accepts device modules
@@ -40,16 +43,37 @@ by ArchSim
 
 \end{frame}
 
-\begin{frame}{DBT Support}
+\begin{frame}{Execution Framework}
 ArchSim supports a variety of execution methods
-\begin{itemize}
-\item Interpretation
-\item Block-based DBT
-\item Region-Based DBT
-\end{itemize}
+\bigskip
 
-%TODO: Images
+\centering
+\begin{minipage}{0.27\textwidth}
+\includegraphics[width=\textwidth]{figures/mode-interpret}\\
+\smallskip
+\centering
+\footnotesize{Interpretation}
+\end{minipage}
+\qquad
+\begin{minipage}{0.27\textwidth}
+\includegraphics[width=\textwidth]{figures/mode-blockjit}\\
+\smallskip
+\centering
+\footnotesize{Block-based DBT}
+\end{minipage}
+\qquad
+\begin{minipage}{0.27\textwidth}
+\includegraphics[width=\textwidth]{figures/mode-regionjit}\\
+\smallskip
+\centering
+\footnotesize{Region-based DBT}
+\end{minipage}
 
+\end{frame}
+
+\begin{frame}{Execution Framework}
+\centering
+\includegraphics[width=\textwidth]{figures/archsim-interface}
 \end{frame}
 
 \begin{frame}{High Speed Tracing}
